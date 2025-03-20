@@ -34,6 +34,28 @@ const EVENT_MESSAGES = {
             <Avatar user={data.actor} size={20} /> removed the issue type
         </>
     ),
+    milestoned: (data) => (
+        <>
+            <Avatar user={data.actor} size={20} /> added this to the {data.milestone.title}{' '}
+            milestone
+        </>
+    ),
+    demilestoned: (data) => (
+        <>
+            <Avatar user={data.actor} size={20} /> removed this from the {data.milestone.title}{' '}
+            milestone
+        </>
+    ),
+    parent_issue_added: (data) => (
+        <>
+            <Avatar user={data.actor} size={20} /> Parent issue added
+        </>
+    ),
+    sub_issue_added: (data) => (
+        <>
+            <Avatar user={data.actor} size={20} /> Sub issue added
+        </>
+    ),
 };
 
 export default function Event({ data }) {

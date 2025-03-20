@@ -22,6 +22,7 @@ export default function View({ issue }) {
                     <span style={{ color: '#24292e' }}>{issue.title}</span>{' '}
                     <span style={{ color: '#6a737d' }}>#{issue.number}</span>
                 </Typography>
+                {/* Could not provide parent issue - can't find it in the api reference */}
                 <Divider sx={{ my: 2 }} />
                 <Grid container spacing={2}>
                     <Grid size={8}>

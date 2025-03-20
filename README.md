@@ -25,3 +25,19 @@ paste the token in the `.env.local` file.
 ```
 GITHUB_PERSONAL_TOKEN=your_token_here
 ```
+
+Limitations:
+Project - could not get the project for the issue.
+Sub/Parent issues - could not get the sub issues for the issue, only that it's been set.
+This only shows the issues, timeline of events in an issue, assignees, labels, and milestones.
+This is because the GitHub API does not provide this information.
+
+TODO:
+Style
+
+- Main Page
+- Issue Page
+  Test with more events
+  Lint
+  Refactor to breakdown the components
+  Add testing where possible
