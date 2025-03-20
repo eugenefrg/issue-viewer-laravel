@@ -12,26 +12,34 @@ const timeAgo = new TimeAgo('en-US');
 
 export default function Timeline({ issue }) {
     return (
-        <MuiTimeline className='view-timeline'>
+        <MuiTimeline className="view-timeline">
             {/* Main timeline item */}
             <TimelineItem>
                 <TimelineCard
-                    header={<p className='flex items-center gap-2'>
-                        <Avatar user={issue.user} size={20} /> opened this issue {timeAgo.format(new Date(issue.created_at))}
-                    </p>}
+                    header={
+                        <p className="flex items-center gap-2">
+                            <Avatar user={issue.user} size={20} /> opened this issue{' '}
+                            {timeAgo.format(new Date(issue.created_at))}
+                        </p>
+                    }
                     reactions={issue.reactions}
                 >
                     <p>{issue.body}</p>
                 </TimelineCard>
             </TimelineItem>
             {issue.timeline_items.map((item, index) => (
-                <TimelineItem 
+                <TimelineItem
                     key={item.data.id}
                     hideConnector={index === issue.timeline_items.length - 1}
                 >
                     {item.type === 'comment' ? (
-                        <TimelineCard 
-                            header={<p><Avatar user={issue.user} size={20} /> commented ${timeAgo.format(new Date(item.created_at))}</p>}
+                        <TimelineCard
+                            header={
+                                <p>
+                                    <Avatar user={issue.user} size={20} /> commented $
+                                    {timeAgo.format(new Date(item.created_at))}
+                                </p>
+                            }
                             reactions={item.data.reactions}
                         >
                             <p>{item.data.body}</p>

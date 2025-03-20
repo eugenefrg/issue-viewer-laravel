@@ -10,7 +10,8 @@ const timeAgo = new TimeAgo('en-US');
 const EVENT_MESSAGES = {
     assigned: (data) => (
         <>
-            <Avatar user={data.actor} size={20} /> assigned <Avatar user={data.assignee} size={20} />
+            <Avatar user={data.actor} size={20} /> assigned{' '}
+            <Avatar user={data.assignee} size={20} />
         </>
     ),
     labeled: (data) => (
@@ -32,19 +33,19 @@ const EVENT_MESSAGES = {
         <>
             <Avatar user={data.actor} size={20} /> removed the issue type
         </>
-    )
+    ),
 };
 
 export default function Event({ data }) {
     const message = EVENT_MESSAGES[data.event]?.(data);
-    
+
     if (!message) {
         console.warn(`Unsupported event type: ${data.event}`);
         return null;
     }
 
     return (
-        <Typography variant="body2" color="textSecondary" className='flex items-center gap-2'>
+        <Typography variant="body2" color="textSecondary" className="flex items-center gap-2">
             {message} {timeAgo.format(new Date(data.created_at))}
         </Typography>
     );

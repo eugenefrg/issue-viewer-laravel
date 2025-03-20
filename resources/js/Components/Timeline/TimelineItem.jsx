@@ -12,9 +12,7 @@ export default function TimelineItem({ children, hideConnector = false }) {
                 <TimelineDot />
                 {!hideConnector && <TimelineConnector />}
             </TimelineSeparator>
-            <TimelineContent>
-                {children}
-            </TimelineContent>
+            <TimelineContent>{children}</TimelineContent>
         </MuiTimelineItem>
     );
 }

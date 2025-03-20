@@ -5,16 +5,8 @@ import Reactions from './Reactions';
 export default function TimelineCard({ header, children, reactions }) {
     return (
         <Card>
-            <CardHeader 
-                title={
-                    <Typography variant="subtitle1">
-                        {header}
-                    </Typography>
-                }
-            />
-            <CardContent>
-                {children}
-            </CardContent>
+            <CardHeader title={<Typography variant="subtitle1">{header}</Typography>} />
+            <CardContent>{children}</CardContent>
             {reactions && (
                 <CardActionArea>
                     <Reactions reactions={reactions} />
