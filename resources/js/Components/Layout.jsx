@@ -29,6 +29,13 @@ export default function Layout({ children }) {
                 <Link underline="hover" color="inherit" href="/">
                     Assigned Issues
                 </Link>
+                <Link underline="hover" color="inherit" href="/">
+                {window.location.pathname.startsWith('/issue/') && (
+                        <Link underline="hover" color="inherit" href={window.location.pathname}>
+                            {window.location.pathname.split('/').slice(2).join('/')}
+                        </Link>
+                    )}
+                </Link>
             </Breadcrumbs>
             <main>{children}</main>
         </Container>

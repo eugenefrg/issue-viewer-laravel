@@ -1,0 +1,4 @@
+.view-timeline .MuiTimelineItem-positionRight::before{
+    flex:0;
+    padding:0;
+}
