@@ -6,6 +6,6 @@ Route::get('/', function () {
     return app(IssueController::class)->list();
 });
 
-Route::get('/issue/{id}', function (string $id) {
-    return app(IssueController::class)->show($id);
+Route::get('/issue/{owner}/{repo}/{id}', function (string $owner, string $repo, string $id) {
+    return app(IssueController::class)->show($owner, $repo, $id);
 });
