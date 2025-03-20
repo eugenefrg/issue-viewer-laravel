@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
     return {
         plugins: [
             laravel({
-                input: ['resources/css/app.css', 'resources/js/app.js'],
+                input: ['resources/css/app.css', 'resources/js/app.jsx'],
                 refresh: true,
             }),
             tailwindcss(),
@@ -17,6 +17,11 @@ export default defineConfig(({ mode }) => {
         // Make GITHUB_PERSONAL_TOKEN available to your frontend
         define: {
             'process.env.GITHUB_PERSONAL_TOKEN': JSON.stringify(env.GITHUB_PERSONAL_TOKEN)
-        }
+        },
+        resolve: {
+            alias: {
+                '@': '/resources/js',
+            },
+        },
     };
 });

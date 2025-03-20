@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class IssueController extends Controller
 {
     public function show(string $id)
     {
-        return view('issue', ['id' => $id]);
+        return Inertia::render('Issue/View', [
+            'id' => $id,
+        ]);
+    }
+
+    public function list()
+    {
+        return Inertia::render('Issue/List');
     }
 }
