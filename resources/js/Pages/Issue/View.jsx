@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardActionArea } from '@mui/material'
+import { Card, CardContent} from '@mui/material'
 import Layout from '../../Components/Layout'
 import React from 'react'
 import { Typography } from '@mui/material'
@@ -7,9 +7,7 @@ import TimeAgo from 'javascript-time-ago'
 import en from 'javascript-time-ago/locale/en'
 TimeAgo.addDefaultLocale(en)
 // Create formatter (English).
-const timeAgo = new TimeAgo('en-US')
 import './View.css';
-import Event from '../../Components/Timeline/Event';
 import { Divider } from '@mui/material';
 import Timeline from '../../Components/Timeline';
 import Grid from '@mui/material/Grid2';
