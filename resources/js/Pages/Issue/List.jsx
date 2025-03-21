@@ -2,7 +2,7 @@ import Layout from '../../Components/Layout';
 import { Head } from '@inertiajs/react';
 import React from 'react';
 import Chip from '../../Components/Chip';
-import { Typography, Divider, Card, CardActionArea } from '@mui/material';
+import { Typography, Card, CardActionArea } from '@mui/material';
 
 export default function List({ issues }) {
     return (

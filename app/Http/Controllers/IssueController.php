@@ -81,15 +81,11 @@ class IssueController extends Controller
             $issueData = $response->json();
 
             $comments = $this->fetchFromResourceUrl($issueData['comments_url']) ?? [];
-            // $reactions = $this->fetchFromResourceUrl($issueData['reactions']['url']);
             $events = $this->fetchFromResourceUrl($issueData['events_url']) ?? [];
 
-            // $issueData['reactions_data'] = $reactions ?? [];
 
             $issueData['timeline_items'] = $this->buildTimelineItems($events, $comments);
 
-            // could not provide projects and relationships from the API response. It's probably
-            // possible to get them from the API, but it's not clear to me how to do it.
             return $issueData;
         }
 
