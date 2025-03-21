@@ -1,20 +1,19 @@
-import { Card, CardContent } from '@mui/material';
 import Layout from '../../Components/Layout';
 import React from 'react';
 import { Typography } from '@mui/material';
 import TimeAgo from 'javascript-time-ago';
-// English.
 import en from 'javascript-time-ago/locale/en';
 TimeAgo.addDefaultLocale(en);
-// Create formatter (English).
 import './View.css';
 import { Divider } from '@mui/material';
 import Timeline from '../../Components/Timeline';
 import Grid from '@mui/material/Grid2';
-import Avatar from '../../Components/Avatar';
+import Chip from '../../Components/Chip';
+import IssueMetadata from '../../Components/Issue/IssueMetadata';
+import { Button } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export default function View({ issue }) {
-    console.log(issue);
     return (
         <Layout>
             <div>
@@ -23,69 +22,27 @@ export default function View({ issue }) {
                     <span style={{ color: '#6a737d' }}>#{issue.number}</span>
                 </Typography>
                 {/* Could not provide parent issue - can't find it in the api reference */}
+                <Chip label={issue.state} color={issue.state === 'open' ? '2cbe4e' : 'cb2431'} />
                 <Divider sx={{ my: 2 }} />
                 <Grid container spacing={2}>
                     <Grid size={8}>
                         <Timeline issue={issue} />
                     </Grid>
                     <Grid size={4}>
-                        <Card>
-                            <CardContent>
-                                <Typography variant="subtitle1" gutterBottom>
-                                    Assignees
-                                </Typography>
-                                {issue.assignees.length > 0 ? (
-                                    issue.assignees.map((assignee) => (
-                                        <Avatar user={assignee} size={20} key={assignee.id} />
-                                    ))
-                                ) : (
-                                    <Typography variant="body2" color="text.secondary">
-                                        No assignees
-                                    </Typography>
-                                )}
-
-                                <Typography variant="subtitle1" sx={{ mt: 2 }} gutterBottom>
-                                    Labels
-                                </Typography>
-                                {issue.labels.length > 0 ? (
-                                    issue.labels.map((label) => (
-                                        <Typography
-                                            key={label.id}
-                                            variant="body2"
-                                            component="span"
-                                            sx={{
-                                                backgroundColor: `#${label.color}`,
-                                                padding: '2px 8px',
-                                                borderRadius: '12px',
-                                                marginRight: 1,
-                                                color: '#000',
-                                            }}
-                                        >
-                                            {label.name}
-                                        </Typography>
-                                    ))
-                                ) : (
-                                    <Typography variant="body2" color="text.secondary">
-                                        No labels
-                                    </Typography>
-                                )}
-
-                                <Typography variant="subtitle1" sx={{ mt: 2 }} gutterBottom>
-                                    Milestone
-                                </Typography>
-                                {issue.milestone ? (
-                                    <Typography variant="body2" color="text.secondary">
-                                        {issue.milestone.title}
-                                    </Typography>
-                                ) : (
-                                    <Typography variant="body2" color="text.secondary">
-                                        No milestone
-                                    </Typography>
-                                )}
-                            </CardContent>
-                        </Card>
+                        <IssueMetadata issue={issue} />
                     </Grid>
                 </Grid>
+                <div className="flex flex-col justify-items-center mb-32">
+                    <Button
+                        href="/"
+                        startIcon={<ArrowBackIcon />}
+                        variant="outlined"
+                        fullWidth
+                        sx={{ textTransform: 'none' }}
+                    >
+                        back to your assigned issues
+                    </Button>
+                </div>
             </div>
         </Layout>
     );

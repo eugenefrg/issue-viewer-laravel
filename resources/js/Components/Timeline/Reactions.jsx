@@ -16,7 +16,7 @@ export default function Reactions({ reactions }) {
     if (!reactions) return null;
 
     return (
-        <div style={{ display: 'flex', gap: '8px' }}>
+        <div className="flex gap-2 p-4">
             {Object.entries(REACTION_EMOJIS).map(
                 ([key, emoji]) =>
                     reactions[key] > 0 && (

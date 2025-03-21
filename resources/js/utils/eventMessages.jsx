@@ -1,5 +1,6 @@
 import React from 'react';
 import Avatar from '../Components/Avatar';
+import Chip from '../Components/Chip';
 
 export const EVENT_MESSAGES = {
     assigned: (data) => (
@@ -10,7 +11,8 @@ export const EVENT_MESSAGES = {
     ),
     labeled: (data) => (
         <>
-            <Avatar user={data.actor} size={20} /> added the {data.label.name} label
+            <Avatar user={data.actor} size={20} /> added{' '}
+            <Chip label={data.label.name} color={data.label.color} size="small" /> label
         </>
     ),
     issue_type_added: (data) => (
@@ -26,6 +28,28 @@ export const EVENT_MESSAGES = {
     issue_type_removed: (data) => (
         <>
             <Avatar user={data.actor} size={20} /> removed the issue type
+        </>
+    ),
+    milestoned: (data) => (
+        <>
+            <Avatar user={data.actor} size={20} /> added this to the <u>{data.milestone.title}</u>{' '}
+            milestone
+        </>
+    ),
+    demilestoned: (data) => (
+        <>
+            <Avatar user={data.actor} size={20} /> removed this from the{' '}
+            <u>{data.milestone.title}</u> milestone
+        </>
+    ),
+    parent_issue_added: (data) => (
+        <>
+            <Avatar user={data.actor} size={20} /> Parent issue added
+        </>
+    ),
+    sub_issue_added: (data) => (
+        <>
+            <Avatar user={data.actor} size={20} /> Sub issue added
         </>
     ),
 };

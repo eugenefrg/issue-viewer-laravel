@@ -31,6 +31,7 @@ Project - could not get the project for the issue.
 Sub/Parent issues - could not get the sub issues for the issue, only that it's been set.
 This only shows the issues, timeline of events in an issue, assignees, labels, and milestones.
 This is because the GitHub API does not provide this information.
+Optimized for Desktop Experience only.
 
 TODO:
 Style

@@ -1,6 +1,7 @@
 import Layout from '../../Components/Layout';
 import { Head } from '@inertiajs/react';
 import React from 'react';
+import Chip from '../../Components/Chip';
 
 export default function List({ issues }) {
     return (
@@ -14,13 +15,12 @@ export default function List({ issues }) {
                         <h3 className="font-bold">{issue.title}</h3>
                         <div className="flex gap-2">
                             {issue.labels.map((label) => (
-                                <span
+                                <Chip
                                     key={label.id}
-                                    className="px-2 py-1 text-xs rounded-full"
-                                    style={{ backgroundColor: `#${label.color}` }}
-                                >
-                                    {label.name}
-                                </span>
+                                    label={label.name}
+                                    color={label.color}
+                                    className="p-8"
+                                />
                             ))}
                             <div className="flex items-center gap-1 text-sm text-gray-600">
                                 <span>#{issue.number}</span>
