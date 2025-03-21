@@ -43,6 +43,10 @@ A web application for viewing GitHub issues with their timelines, assignees, lab
 
     Note: Classic tokens are recommended over fine-grained tokens to ensure access to organization issues.
 
+4. Populate your .env:
+
+    - for this project, copy the contents of `.env.example` to `.env`:
+
 ## Running the Application
 
 1. Start the development server (in separate terminals):
